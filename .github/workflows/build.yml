@@ -24,15 +24,12 @@ jobs:
           ref: Branch81_tmp
           fetch-depth: 0
 
-      - name: Set up JDK 1.8.0_171
+      - name: Set up Java and Maven
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'  # Or 'adopt' if you have a custom JDK
-          java-version: '8.0.171'
-
-      - name: Set Maven Version 3.2.2
-        uses: s4u/setup-maven-action@v1
-        with:
+          distribution: 'zulu'  # or 'adopt', 'temurin', etc.
+          java-version: '8'
+          cache: maven
           maven-version: '3.2.2'
 
       - name: Build with Maven
